@@ -5,52 +5,53 @@
 <script src="./random.js"></script>
 
 <script type="text/javascript">
-(function(w,d,s,r,k,h,m){
-	if(w.performance && w.performance.timing && w.performance.navigation) {
-		w[r] = w[r] || function(){(w[r].q = w[r].q || []).push(arguments)};
-		h=d.createElement('script');h.async=true;h.setAttribute('src',s+k);
-		d.getElementsByTagName('head')[0].appendChild(h);
-		(m = window.onerror),(window.onerror = function (b, c, d, f, g) {
-		m && m(b, c, d, f, g),g || (g = new Error(b)),(w[r].q = w[r].q || []).push(["captureException",g]);})
-	}
-})(window,document,'//static.site24x7rum.eu/beacon/site24x7rum-min.js?appKey=','s247r','490c2efebb06e025039f50507c28f475');
-s247r('setWaterfallsSamplingRate',1);
-s247r('userId',getRandomName());
-</script>
-
-<script src="case1.min.js"></script>
-<script src="case2.min.js"></script>
-<script src="case2fail.min.js"></script>
-<script src="case3.min.js"></script>
-<script src="case4.min.js"></script>
-<script src="case5/func1/func1.min.js"></script>
-<script src="case5/func2/func2.min.js"></script>
-
-<script type="text/javascript">	
-function makeApiCall(url) {	
-	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET", url, true);
-	xhttp.send();	
-}
-document.onreadystatechange = () => {
-	
-	//simulateAJAXCalls
-	makeApiCall("https://jsonplaceholder.typicode.com/todos/1");
-	makeApiCall("https://reqres.in/api/users/2");
-	makeApiCall("script.js");
-	makeApiCall("https://gorest.co.in/public/v2/users");
-	makeApiCall("https://dummyjson.com/products/1");
-	
-	//simulateJSErrors
-	// case1();
-	// case2();	
-	// case2fail();
-	// case3();
-	// case4();
-	// case5_func1();
-	
-}		
-</script>
+    (function(w,d,s,r,k,h,m){
+        if(w.performance && w.performance.timing && w.performance.navigation) {
+            w[r] = w[r] || function(){(w[r].q = w[r].q || []).push(arguments)};
+            h=d.createElement('script');h.async=true;h.setAttribute('src',s+k);
+            d.getElementsByTagName('head')[0].appendChild(h);
+            (m = window.onerror),(window.onerror = function (b, c, d, f, g) {
+            m && m(b, c, d, f, g),g || (g = new Error(b)),(w[r].q = w[r].q || []).push(["captureException",g]);})
+        }
+    })(window,document,'//static.site24x7rum.eu/beacon/site24x7rum-min.js?appKey=','s247r','a0ba722013f1da7a19dfb3ec7b3d9f1e');
+    s247r('setWaterfallsSamplingRate',1);
+    s247r('userId',getRandomName());
+    </script>
+        
+    <script src="case1.min.js"></script>
+    <script src="case2.min.js"></script>
+    <script src="case2fail.min.js"></script>
+    <script src="case3.min.js"></script>
+    <script src="case4.min.js"></script>
+    <script src="case5/func1/func1.min.js"></script>
+    <script src="case5/func2/func2.min.js"></script>
+    
+    <script type="text/javascript">	
+    function makeApiCall(url) {	
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, true);
+        xhttp.send();	
+    }
+    document.onreadystatechange = () => {
+        //simulateAJAXCalls
+        makeApiCall("https://jsonplaceholder.typicode.com/todos/1");
+        makeApiCall("https://reqres.in/api/users/2");
+        makeApiCall("script.js");
+        makeApiCall("https://gorest.co.in/public/v2/users");
+        makeApiCall("https://dummyjson.com/products/1");
+        
+        //simulateJSErrors
+        switch ((Math.floor(Math.random() * 6) + 1)) {
+              case 1:case1();break;
+              case 2:case2();break;
+             case 3:case2fail();break;
+             case 4:case3();break;
+              case 5:case4();break;
+              case 6:case5_func1();break;
+              default:console.log("Invalid number");break;
+        }
+    }		
+    </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

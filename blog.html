@@ -1,55 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
-<script src="./random.js"></script>
 
-<script type="text/javascript">
-(function(w,d,s,r,k,h,m){
-	if(w.performance && w.performance.timing && w.performance.navigation) {
-		w[r] = w[r] || function(){(w[r].q = w[r].q || []).push(arguments)};
-		h=d.createElement('script');h.async=true;h.setAttribute('src',s+k);
-		d.getElementsByTagName('head')[0].appendChild(h);
-		(m = window.onerror),(window.onerror = function (b, c, d, f, g) {
-		m && m(b, c, d, f, g),g || (g = new Error(b)),(w[r].q = w[r].q || []).push(["captureException",g]);})
-	}
-})(window,document,'//static.site24x7rum.eu/beacon/site24x7rum-min.js?appKey=','s247r','490c2efebb06e025039f50507c28f475');
-s247r('setWaterfallsSamplingRate',1);
-s247r('userId',getRandomName());
-</script>
-	
-<script src="case1.min.js"></script>
-<script src="case2.min.js"></script>
-<script src="case2fail.min.js"></script>
-<script src="case3.min.js"></script>
-<script src="case4.min.js"></script>
-<script src="case5/func1/func1.min.js"></script>
-<script src="case5/func2/func2.min.js"></script>
+    <script src="./random.js"></script>
 
-<script type="text/javascript">	
-function makeApiCall(url) {	
-	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET", url, true);
-	xhttp.send();	
-}
-document.onreadystatechange = () => {
-	
-	//simulateAJAXCalls
-	makeApiCall("https://jsonplaceholder.typicode.com/todos/1");
-	makeApiCall("https://reqres.in/api/users/2");
-	makeApiCall("script.js");
-	makeApiCall("https://gorest.co.in/public/v2/users");
-	makeApiCall("https://dummyjson.com/products/1");
-	
-	//simulateJSErrors
-	// case1();
-	// case2();	
-	// case2fail();
-	// case3();
-	// case4();
-	// case5_func1();
-}		
-</script>
+    <script type="text/javascript">
+        (function (w, d, s, r, k, h, m) {
+            if (w.performance && w.performance.timing && w.performance.navigation) {
+                w[r] = w[r] || function () { (w[r].q = w[r].q || []).push(arguments) };
+                h = d.createElement('script'); h.async = true; h.setAttribute('src', s + k);
+                d.getElementsByTagName('head')[0].appendChild(h);
+                (m = window.onerror), (window.onerror = function (b, c, d, f, g) {
+                    m && m(b, c, d, f, g), g || (g = new Error(b)), (w[r].q = w[r].q || []).push(["captureException", g]);
+                })
+            }
+        })(window, document, '//static.site24x7rum.eu/beacon/site24x7rum-min.js?appKey=', 's247r', 'a0ba722013f1da7a19dfb3ec7b3d9f1e');
+        s247r('setWaterfallsSamplingRate', 1);
+        s247r('userId', getRandomName());
+    </script>
+
+    <script src="case1.min.js"></script>
+    <script src="case2.min.js"></script>
+    <script src="case2fail.min.js"></script>
+    <script src="case3.min.js"></script>
+    <script src="case4.min.js"></script>
+    <script src="case5/func1/func1.min.js"></script>
+    <script src="case5/func2/func2.min.js"></script>
+
+    <script type="text/javascript">
+        function makeApiCall(url) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+        document.onreadystatechange = () => {
+            //simulateAJAXCalls
+            makeApiCall("https://jsonplaceholder.typicode.com/todos/1");
+            makeApiCall("https://reqres.in/api/users/2");
+            makeApiCall("script.js");
+            makeApiCall("https://gorest.co.in/public/v2/users");
+            makeApiCall("https://dummyjson.com/products/1");
+
+            //simulateJSErrors
+            switch ((Math.floor(Math.random() * 6) + 1)) {
+                case 1: case1(); break;
+                case 2: case2(); break;
+                case 3: case2fail(); break;
+                case 4: case3(); break;
+                case 5: case4(); break;
+                case 6: case5_func1(); break;
+                default: console.log("Invalid number"); break;
+            }
+        }		
+    </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,24 +61,27 @@ document.onreadystatechange = () => {
     <!-- CSS LINK -->
     <link rel="stylesheet" href="style.css">
     <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Blog | Nizami Sevindi</title>
 </head>
+
 <body>
 
     <!-------------------------------------------- HEADER SECTION -->
-    <header class="header" >
+    <header class="header">
         <a href="#" class="logo">
             <img src="./image/pngegg.png" alt="logo">
         </a>
         <nav class="navbar">
             <a href="./index.html">home</a>
             <a href="./about.html">about</a>
-            <a href="./menu.html" >menu</a>
-            <a href="./products.html" >products</a>
-            <a href="./review.html" >review</a>
-            <a href="./contact.html" >contact</a>
-            <a href="./blog.html"class="active" >blog</a>
+            <a href="./menu.html">menu</a>
+            <a href="./products.html">products</a>
+            <a href="./review.html">review</a>
+            <a href="./contact.html">contact</a>
+            <a href="./blog.html" class="active">blog</a>
         </nav>
         <div class="buttons">
             <button id="search-btn">
@@ -127,50 +134,54 @@ document.onreadystatechange = () => {
             <a href="#" class="btn">check out </a>
         </div>
     </header>
-<!-- -------------------------------------------HEADER SECTION -->
+    <!-- -------------------------------------------HEADER SECTION -->
 
-<!-- -------------------------------------------BLOG SECTION -->
-<section class="blog" id="blog">
-    <h1 class="heading">our <span>blog</span> </h1>
-    <div class="box-container">
-        <div class="box-full">
-            <div class="image">
-                <img src="./image/delicious-burger-on-wooden-board-2022-03-04-05-58-25-utc.jpg" alt="">
+    <!-- -------------------------------------------BLOG SECTION -->
+    <section class="blog" id="blog">
+        <h1 class="heading">our <span>blog</span> </h1>
+        <div class="box-container">
+            <div class="box-full">
+                <div class="image">
+                    <img src="./image/delicious-burger-on-wooden-board-2022-03-04-05-58-25-utc.jpg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">how to make burgers</a>
+                    <span>by admin / 10st may, 2020</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus eos esse nesciunt cupiditate
+                        expedita.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
             </div>
-            <div class="content">
-                <a href="#" class="title">how to make burgers</a>
-                <span>by admin / 10st may, 2020</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus eos esse nesciunt cupiditate expedita.</p>
-                <a href="#" class="btn">read more</a>
+            <div class="box-full">
+                <div class="image">
+                    <img src="./image/delicious-tasty-burgers-on-wooden-background-2021-08-26-15-25-13-utc.jpg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">how to make burgers</a>
+                    <span>by admin / 10st may, 2020</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus eos esse nesciunt cupiditate
+                        expedita.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+            <div class="box-full">
+                <div class="image">
+                    <img src="./image/handmade-burger-on-dark-background-delicious-blac-2021-10-21-02-27-27-utc.jpg"
+                        alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="title">how to make burgers</a>
+                    <span>by admin / 10st may, 2020</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus eos esse nesciunt cupiditate
+                        expedita.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
             </div>
         </div>
-        <div class="box-full">
-            <div class="image">
-                <img src="./image/delicious-tasty-burgers-on-wooden-background-2021-08-26-15-25-13-utc.jpg" alt="">
-            </div>
-            <div class="content">
-                <a href="#" class="title">how to make burgers</a>
-                <span>by admin / 10st may, 2020</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus eos esse nesciunt cupiditate expedita.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-        </div>
-        <div class="box-full">
-            <div class="image">
-                <img src="./image/handmade-burger-on-dark-background-delicious-blac-2021-10-21-02-27-27-utc.jpg" alt="">
-            </div>
-            <div class="content">
-                <a href="#" class="title">how to make burgers</a>
-                <span>by admin / 10st may, 2020</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus eos esse nesciunt cupiditate expedita.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- -------------------------------------------BLOG SECTION -->
+    </section>
+    <!-- -------------------------------------------BLOG SECTION -->
 
-<!-- -------------------------------------------FOOTER SECTION -->
+    <!-- -------------------------------------------FOOTER SECTION -->
     <section class="footer">
         <div class="search">
             <input type="text" class="search-input" placeholder="Search">
@@ -198,7 +209,8 @@ document.onreadystatechange = () => {
     </section>
     <!-- -------------------------------------------FOOTER SECTION -->
 
-<script src="./script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
+
 </html>
