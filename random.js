@@ -23,7 +23,7 @@ function getRandomName() {
 }
 
 function getAppKey(){
-  let appKey = 'afc8510a56cf1004f9024d9d121f2563';
+  let appKey = 'a0ba722013f1da7a19dfb3ec7b3d9f1e';
   return appKey;
 
 }
